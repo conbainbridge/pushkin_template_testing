@@ -30,7 +30,7 @@ export default function AboutPage(props) {
           <Row className="h2 mt-5 mb-3 justify-content-center">
             Meet Our Team Members!
           </Row>
-          <hr />
+          <hr style={{ marginBottom: '0px' }}/>
           <Row>
             {people.map(p => {
               return (
