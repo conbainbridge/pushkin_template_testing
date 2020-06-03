@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'slabo';
+  src: local('slabo'),
+    url('https://fonts.google.com/specimen/Slabo+27px') format('truetype');
+}
+
+body {
+  font-family: 'slabo';
+  font-size: large;
+}
