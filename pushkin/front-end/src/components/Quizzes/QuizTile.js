@@ -44,11 +44,11 @@ class QuizTile extends Component {
         fontSize: 26,
         fontWeight: 600
       },
-      cardButton: {
-        backgroundColor: '#FF6200',
-        color: 'white',
-        border: 0
-      },
+      // cardButton: {
+      //   backgroundColor: '#FF6200',
+      //   color: 'white',
+      //   border: 0
+      // },
       socialIcon: {
         height: 30,
         width: 30,
@@ -109,10 +109,10 @@ class QuizTile extends Component {
           </Card.Body>
           <Row className="justify-content-center mt-2">
             <LinkContainer
-              style={styles.cardButton}
+              // style={styles.cardButton}
               to={'/quizzes/' + this.props.id}
             >
-              <Button>Play Now</Button>
+              <Button variant="primary">Play Now</Button>
             </LinkContainer>
           </Row>
           <Row className="justify-content-center mt-3 mb-3">
