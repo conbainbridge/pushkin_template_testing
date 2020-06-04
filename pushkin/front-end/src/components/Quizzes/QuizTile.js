@@ -70,6 +70,9 @@ class QuizTile extends Component {
           opacity: 0.6,
           transition: '0.3s'
         },
+      },
+      circleStyle: {
+        borderRadius: '50%'
       }
     });
 
@@ -105,7 +108,7 @@ class QuizTile extends Component {
           <LinkContainer
             // style={styles.cardButton}
             to={'/quizzes/' + this.props.id}
-            className={css(hoverStyles.opacityStyle)}
+            className={css(hoverStyles.opacityStyle, hoverStyles.circleStyle)}
           >
             <Card.Img src={this.props.img} style={styles.cardImage} />
           </LinkContainer>
