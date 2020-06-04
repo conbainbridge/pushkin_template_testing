@@ -31,37 +31,43 @@ class QuizTile extends Component {
 
   render() {
     // styling
-    const styles = StyleSheet.create({
+    const styles = {
       card: {
         backgroundColor: '#B7E0F2',
         borderRadius: 55,
         padding: '1rem'
       },
-      cardImage: {
-        width: '100%',
-        objectFit: 'cover'
-      },
       cardTitle: {
         fontSize: 26,
         fontWeight: 600
+      }
+    };
+
+    const hoverStyles = StyleSheet.create({
+      cardImage: {
+        width: '100%',
+        objectFit: 'cover'
       },
       cardButton: {
         backgroundColor: '#FF6200',
         color: 'white',
         border: 0,
         ':hover': {
-          backgroundColor: '#FFA46B',
+          backgroundColor: '#FFAF7D',
           transition: '0.3s'
         }
       },
       socialIcon: {
-        height: 30,
-        width: 30,
+        height: 40,
+        width: 40,
         margin: 3,
-        opacity: 0.8,
+        opacity: 1
+      },
+      opacityStyle: {
+        opacity: 1,
         ':hover': {
           cursor: 'pointer',
-          opacity: 0.4,
+          opacity: 0.6,
           transition: '0.3s'
         },
       }
@@ -96,7 +102,13 @@ class QuizTile extends Component {
       <Col md={4} className="mt-5 d-flex align-items-stretch">
         <Card className="border-0 shadow" style={styles.card}>
           <Card.Body>
+          <LinkContainer
+            // style={styles.cardButton}
+            to={'/quizzes/' + this.props.id}
+            className={css(hoverStyles.opacityStyle)}
+          >
             <Card.Img src={this.props.img} style={styles.cardImage} />
+          </LinkContainer>
             <Card.Title className="mt-4" style={styles.cardTitle}>
               {this.props.title}
             </Card.Title>
@@ -123,7 +135,7 @@ class QuizTile extends Component {
               // style={styles.cardButton}
               to={'/quizzes/' + this.props.id}
             >
-              <Button className={css(styles.cardButton)}>Play Now</Button>
+              <Button className={css(hoverStyles.cardButton)}>Play Now</Button>
             </LinkContainer>
           </Row>
           <Row className="justify-content-center mt-3 mb-3">
@@ -133,7 +145,7 @@ class QuizTile extends Component {
                 e.preventDefault();
                 share.open(share.facebook);
               }}
-              className={css(styles.socialIcon)}
+              className={css(hoverStyles.socialIcon, hoverStyles.opacityStyle)}
               target="_blank"
             />
             <i.SocialIcon
@@ -142,12 +154,12 @@ class QuizTile extends Component {
                 e.preventDefault();
                 share.open(share.twitter);
               }}
-              className={css(styles.socialIcon)}
+              className={css(hoverStyles.socialIcon, hoverStyles.opacityStyle)}
               target="_blank"
             />
             <i.SocialIcon
               url={share.email}
-              className={css(styles.socialIcon)}
+              className={css(hoverStyles.socialIcon, hoverStyles.opacityStyle)}
               target="_blank"
             />
             {/* BETA ribbon */}
