@@ -7,6 +7,7 @@ import { Card, Button, Row, Col } from 'react-bootstrap';
 //Other
 import { CONFIG } from '../../config';
 import * as i from 'react-social-icons';
+import { StyleSheet, css } from 'aphrodite';
 
 class QuizTile extends Component {
   state = {
@@ -30,7 +31,7 @@ class QuizTile extends Component {
 
   render() {
     // styling
-    const styles = {
+    const styles = StyleSheet.create({
       card: {
         backgroundColor: '#B7E0F2',
         borderRadius: 55,
@@ -44,17 +45,27 @@ class QuizTile extends Component {
         fontSize: 26,
         fontWeight: 600
       },
-      // cardButton: {
-      //   backgroundColor: '#FF6200',
-      //   color: 'white',
-      //   border: 0
-      // },
+      cardButton: {
+        backgroundColor: '#FF6200',
+        color: 'white',
+        border: 0,
+        ':hover': {
+          backgroundColor: '#FFA46B',
+          transition: '0.3s'
+        }
+      },
       socialIcon: {
         height: 30,
         width: 30,
-        margin: 3
+        margin: 3,
+        opacity: 0.8,
+        ':hover': {
+          cursor: 'pointer',
+          opacity: 0.4,
+          transition: '0.3s'
+        },
       }
-    };
+    });
 
     // Generate sharing links
     let url = CONFIG.frontEndURL + `${this.props.id}`;
@@ -112,7 +123,7 @@ class QuizTile extends Component {
               // style={styles.cardButton}
               to={'/quizzes/' + this.props.id}
             >
-              <Button variant="primary">Play Now</Button>
+              <Button className={css(styles.cardButton)}>Play Now</Button>
             </LinkContainer>
           </Row>
           <Row className="justify-content-center mt-3 mb-3">
@@ -122,7 +133,7 @@ class QuizTile extends Component {
                 e.preventDefault();
                 share.open(share.facebook);
               }}
-              style={styles.socialIcon}
+              className={css(styles.socialIcon)}
               target="_blank"
             />
             <i.SocialIcon
@@ -131,12 +142,12 @@ class QuizTile extends Component {
                 e.preventDefault();
                 share.open(share.twitter);
               }}
-              style={styles.socialIcon}
+              className={css(styles.socialIcon)}
               target="_blank"
             />
             <i.SocialIcon
               url={share.email}
-              style={styles.socialIcon}
+              className={css(styles.socialIcon)}
               target="_blank"
             />
             {/* BETA ribbon */}
