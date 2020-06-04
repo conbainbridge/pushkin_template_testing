@@ -25,7 +25,7 @@ const styles = {
 
 const FindingsCard = props => {
   return (
-    <Card className="m-5 border-0 shadow" style={styles.card}>
+    <Card className="mt-5 border-0 shadow" style={styles.card}>
       <Row>
         <Col md={5}>
           <Card.Img src={props.image} style={styles.cardImage} />
